@@ -11,16 +11,18 @@ import { HttpClientModule } from '@angular/common/http';
 import { ProcesarPedidoComponent } from './controller/procesar-pedido/procesar-pedido.component';
 import { ConsultarPedidosComponent } from './controller/consultar-pedidos/consultar-pedidos.component';
 import { ConsultarPedidosService } from './service/consultar-pedidos.service';
-
+import { MenuComponent } from './controller/menu/menu.component';
 import { RegistrarComponent } from './controller/registrar/registrar.component';
-
+import { PortadaComponent } from './controller/portada/portada.component';
 
 @NgModule({
   declarations: [
     LoginComponent,
     ProcesarPedidoComponent,
-    ConsultarPedidosComponent,  
+    ConsultarPedidosComponent,
+    MenuComponent,
     RegistrarComponent,
+    PortadaComponent
   ],
   imports: [
     BrowserModule,
@@ -29,6 +31,6 @@ import { RegistrarComponent } from './controller/registrar/registrar.component';
     HttpClientModule
   ],
   providers: [],
-  bootstrap: [LoginComponent]
+  bootstrap: [MenuComponent]
 })
 export class AppModule { }
