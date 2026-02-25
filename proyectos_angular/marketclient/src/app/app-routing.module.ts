@@ -8,24 +8,24 @@ import { RegistrarComponent } from './controller/registrar/registrar.component';
 
 const routes: Routes = [
   {
-    path:'portada',
-    component:PortadaComponent
+    path: 'portada',
+    component: PortadaComponent
   },
   {
-    path:'login',
-    component:LoginComponent
+    path: 'login',
+    component: LoginComponent
   },
   {
-    path:'consultar',
-    component:ConsultarPedidosComponent
+    path: 'consultar',
+    component: ConsultarPedidosComponent
   },
   {
-    path:'procesar',
-    component:ProcesarPedidoComponent
+    path: 'procesar',
+    component: ProcesarPedidoComponent
   },
   {
-    path:'registrese',
-    component:RegistrarComponent
+    path: 'registrar',
+    component: RegistrarComponent
   }
 ];
 

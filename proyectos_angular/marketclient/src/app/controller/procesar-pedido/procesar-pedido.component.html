@@ -42,10 +42,10 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let p of cesta; index as i">
-            <th>{{p.producto.nombre}}</th>
-            <td>{{p.producto.precioUnitario}}</td>
-            <td>{{p.unidades}}</td>
+          <tr *ngFor="let c of cesta; index as i">
+            <th>{{c.producto.nombre}}</th>
+            <td>{{c.producto.precioUnitario}}</td>
+            <td>{{c.unidades}}</td>
 
             <td><input type="button" class="form-control" value="quitar" (click)="quitarCesta(i);"></td>
           </tr>

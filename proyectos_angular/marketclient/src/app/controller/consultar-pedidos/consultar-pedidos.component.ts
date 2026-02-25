@@ -1,16 +1,17 @@
+import { Pedido } from './../../model/Pedido';
 import { MenuComponent } from './../menu/menu.component';
 import { Component, OnInit } from '@angular/core';
-import { Pedido } from 'src/app/model/Pedido';
-import { ConsultarPedidosService } from 'src/app/service/consultar-pedidos.service';
+import { ConsultarPedidosService } from './../../service/consultar-pedidos.service';
 
 @Component({
   selector: 'app-consultar-pedidos',
   templateUrl: './consultar-pedidos.component.html',
-  styleUrls: ['./consultar-pedidos.component.css']
+  styleUrls: ['./consultar-pedidos.component.css'],
+  standalone: false     // Modificado aqui
 })
 export class ConsultarPedidosComponent implements OnInit {
-  pedidos:Pedido[];
   usuario:string;
+  pedidos:Pedido[];
   constructor(private consultarPedidosService:ConsultarPedidosService,
     private menuComponent:MenuComponent) { }
 

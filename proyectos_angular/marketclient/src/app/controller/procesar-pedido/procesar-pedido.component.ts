@@ -1,13 +1,19 @@
 import { LoginComponent } from './../login/login.component';
 import { CestaItem } from './../../model/CestaItem';
 import { Component, OnInit } from '@angular/core';
-import { Categoria } from 'src/app/model/Categoria';
-import { Producto } from 'src/app/model/Producto';
-import { ProcesarPedidoService } from 'src/app/service/procesar-pedido.service';
+import { Categoria } from './../../model/Categoria';
+
+import { Producto } from './../../model/Producto';
+import { ProcesarPedidoService } from './../../service/procesar-pedido.service';
 import { MenuComponent } from '../menu/menu.component';
+
+import { CommonModule } from '@angular/common'; // Para *ngFor y *ngIf
+import { FormsModule } from '@angular/forms';   // Para [(ngModel)]
 
 @Component({
   selector: 'app-procesar-pedido',
+  standalone: true,   //Modificado
+  imports: [CommonModule, FormsModule],   //Modificado
   templateUrl: './procesar-pedido.component.html',
   styleUrls: ['./procesar-pedido.component.css']
 })
@@ -21,6 +27,7 @@ export class ProcesarPedidoComponent implements OnInit {
 
   ngOnInit(): void {
     this.procesarPedidoService.listCategorias().subscribe(c=>this.categorias=c);
+    // this.cesta=[];
   }
 
   cargarProductos(){
@@ -38,7 +45,7 @@ export class ProcesarPedidoComponent implements OnInit {
           p.stock=p.stock-it.unidades;
         }
       })
-      
+
     });
   }
   //añade el producto a la cesta, siempre y cuando exista stock suficiente
@@ -76,10 +83,9 @@ export class ProcesarPedidoComponent implements OnInit {
   //y para acceder al usuario, necesita el componente de login
   procesarPedido(){
     //this.procesarPedidoService.enviarPedido(this.cesta,this.loginComponent.usuario).subscribe(p=>alert("pedido realizado"));
-    this.procesarPedidoService.enviarPedido(this.cesta,this.menuComponent.cliente.usuario).subscribe(
-      p=>{
-        alert("pedido realizado");
-        this.cesta=[];
+    this.procesarPedidoService.enviarPedido(this.cesta,this.menuComponent.cliente.usuario).subscribe({
+      next: r=>alert("pedido realizado"),
+      error: e=>alert("El pedido no se ha procesado")
       });
   }
 }

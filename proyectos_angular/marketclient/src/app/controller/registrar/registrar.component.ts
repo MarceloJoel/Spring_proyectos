@@ -1,12 +1,14 @@
 import { RegistrarService } from './../../service/registrar.service';
 import { Component, OnInit } from '@angular/core';
-import { Cliente } from 'src/app/model/Cliente';
+import { Cliente } from './../../model/Cliente';
+
 import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registrar',
   templateUrl: './registrar.component.html',
-  styleUrls: ['./registrar.component.css']
+  styleUrls: ['./registrar.component.css'],
+  standalone: false     // Modificado aqui
 })
 export class RegistrarComponent implements OnInit {
   cliente:Cliente=new Cliente();
